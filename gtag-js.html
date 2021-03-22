@@ -14,6 +14,8 @@
     gtag('js', new Date());
 
     gtag('config', 'G-RX29KP062F');
+
+    writeLog("init: " + document.cookie);
   </script>
 
 </head>
@@ -30,7 +32,12 @@
     logListEl.appendChild(logEl);
   }
   document.getElementById("sendEvent").addEventListener("click", () => {
-    gtag('event', 'click', {'event_category': 'button'});
+    gtag('event', 'click', {
+      'event_category': 'button',
+      'event_callback': function() {
+        writeLog("event click: " + document.cookie);
+      }
+    });
   });
 </script>
 </body>
