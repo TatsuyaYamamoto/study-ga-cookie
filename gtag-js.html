@@ -26,15 +26,12 @@ gtag.js
 
   function gtag() {
     dataLayer.push(arguments);
+    writeLog(arguments + " " + document.cookie);
   }
 
-  gtag('js', new Date(), () => {
-    writeLog("gtag('js') " + document.cookie);
-  });
+  gtag('js', new Date());
 
-  gtag('config', 'G-RX29KP062F', () => {
-    writeLog("gtag('config') " + document.cookie);
-  });
+  gtag('config', 'G-RX29KP062F');
 
 </script>
 </body>
