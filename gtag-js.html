@@ -31,6 +31,8 @@
     logEl.innerText = text;
     logListEl.appendChild(logEl);
   }
+  document.body.appendChild(logListEl);
+
   document.getElementById("sendEvent").addEventListener("click", () => {
     gtag('event', 'click', {
       'event_category': 'button',
