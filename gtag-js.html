@@ -4,35 +4,34 @@
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX29KP062F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-RX29KP062F');
+  </script>
+
 </head>
 <body>
-gtag.js
-
-<h2>logs</h2>
-<ul id="logs">
-
-</ul>
-
+<div>gtag.js</div>
+<div>
+  <button id="sendEvent">send event</button>
+</div>
 <script>
-  var logsEl = document.getElementById("logs");
+  const logListEl = document.createElement("li");
   const writeLog = (text) => {
-    var logEl = document.createElement("li");
+    const logEl = document.createElement("li");
     logEl.innerText = text;
-    logsEl.appendChild(logEl);
+    logListEl.appendChild(logEl);
   }
-
-  writeLog(document.cookie);
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-    writeLog("arguments: " + JSON.stringify(arguments) + ", cookie: " + document.cookie);
-  }
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-RX29KP062F');
-
+  document.getElementById("sendEvent").addEventListener("click", () => {
+    gtag('event', 'click', {'event_category': 'button'});
+  });
 </script>
 </body>
 </html>
