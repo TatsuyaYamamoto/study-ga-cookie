@@ -14,8 +14,6 @@
     gtag('js', new Date());
 
     gtag('config', 'G-RX29KP062F');
-
-    writeLog("init: " + document.cookie);
   </script>
 
 </head>
@@ -25,7 +23,7 @@
   <button id="sendEvent">send event</button>
 </div>
 <script>
-  const logListEl = document.createElement("li");
+  const logListEl = document.createElement("ul");
   const writeLog = (text) => {
     const logEl = document.createElement("li");
     logEl.innerText = text;
@@ -41,6 +39,8 @@
       }
     });
   });
+
+  writeLog("init: " + document.cookie);
 </script>
 </body>
 </html>
